@@ -35,3 +35,15 @@ def remove_official(request, id):
     official_data = get_object_or_404(OfficialName, pk=id)    
     official_data.delete()
     return Response("Deleted..", status=status.HTTP_200_OK)
+
+
+@api_view(['PATCH'])
+def update_official(request, id):
+    official_data = get_object_or_404(OfficialName, pk=id)
+    serialized_data = OfficialSerializer(official_data, data=request.data, partial=True)
+
+    if serialized_data.is_valid():
+        serialized_data.save()
+        return Response(serialized_data.data, status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
