@@ -15,6 +15,7 @@ def home(request):
 
 @api_view(['GET'])  #display all data
 def official_name(request):
+    print("Incoming Request")
     official_data = OfficialName.objects.order_by('-added_at')
     serialized_data = OfficialSerializer(official_data, many=True)
     return Response(serialized_data.data, status=status.HTTP_200_OK)
