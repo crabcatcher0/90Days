@@ -77,18 +77,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-DATABASES = {
+#Databases
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_data',
-        'USER': 'postgres',
-        'PASSWORD': '123raut%%',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-
-}
 
 
 # Password validation

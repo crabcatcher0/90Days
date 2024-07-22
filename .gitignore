@@ -157,7 +157,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
+secrete.py
+local_settings.py
 # pytype static type analyzer
 .pytype/
 
