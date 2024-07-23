@@ -159,6 +159,7 @@ dmypy.json
 .pyre/
 secrete.py
 local_settings.py
+secrete_token.py
 # pytype static type analyzer
 .pytype/
 
