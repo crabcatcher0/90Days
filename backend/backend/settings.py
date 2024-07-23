@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
     'api',
     'core',
+    'accounts',
 
 ]
 
@@ -117,7 +119,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 REST_FRAMEWORK = {
-    'DATETIME_FORMAT': "%Y-%m-%d - %I:%M%p"
+    'DATETIME_FORMAT': "%Y-%m-%d - %I:%M%p",
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+
+    
 }
 
 

@@ -6,6 +6,10 @@ from .serializers import StudentSerializer
 from rest_framework.views import APIView
 # Create your views here.
 
+"""
+Class based views, Basic CRUD operations
+"""
+
 class StudentApi(APIView):
     def get(self, request, pk=None,  format=None):
         id = pk
@@ -15,7 +19,7 @@ class StudentApi(APIView):
             result = serialized_data.data
             return Response(result, status=status.HTTP_200_OK)
         else:
-            all_student = Student.objects.all()
+            all_student = Student.objects.all().order_by('-created_at')
             serializer = StudentSerializer(all_student, many=True)
             final_data = serializer.data
             return Response(final_data, status=status.HTTP_200_OK)
@@ -39,3 +43,16 @@ class StudentApi(APIView):
         
         except Exception as e:
             return Response({'message':str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)        
+    
+
+    def patch(self, request, pk=None, format=None):
+        try:
+            std_data = get_object_or_404(Student, id=pk)
+            serializer = StudentSerializer(std_data, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(serializer.errors, status=status.HTTP_304_NOT_MODIFIED)
+        except Exception as e:
+            return Response({'error':str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
