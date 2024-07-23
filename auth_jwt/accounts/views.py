@@ -6,6 +6,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from .models import User
 import jwt, datetime
 from .secrete_token import SECRETE_KEY
+from jwt.exceptions import DecodeError, ExpiredSignatureError, InvalidTokenError
 
 
 class RegisterView(APIView):
@@ -27,7 +28,7 @@ class LoginView(APIView):
             raise AuthenticationFailed('User not found.')
         
         if not user.check_password(password):
-            raise AuthenticationFailed('Incorrect Password.')
+            raise AuthenticationFailed('Invalid Username or Password.')
         
         expiration_time = datetime.datetime.now(datetime.UTC) + datetime.timedelta(minutes=60)
 
@@ -39,29 +40,45 @@ class LoginView(APIView):
 
         token = jwt.encode(payload, SECRETE_KEY, algorithm='HS256')
 
-        response = Response()
-        response.set_cookie(key='jwt', value=token, httponly=True)
-        response.data = {
-            'message':'success'
-        }
+        # response = Response()
+        # response.set_cookie(key='jwt', value=token, httponly=True)
+        # response.data = {
+        #     'message':'success'
+        # }
         
-        return response
+        return Response(token, status=status.HTTP_200_OK)
     
 
 class UserView(APIView):
     def get(self, request):
-        token = request.COOKIES.get('jwt')
+        token = request.headers.get('Authorization')
         if not token:
-            raise AuthenticationFailed('Login In please.')
+            raise AuthenticationFailed('Please log in.')
+
+        if token.startswith('Bearer '):
+            token = token.split(' ')[1]
+        else:
+            raise AuthenticationFailed('Invalid token format.')
+
         try:
             payload = jwt.decode(token, SECRETE_KEY, algorithms=['HS256'])
 
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated.')
+        except ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated - Token has expired.')
         
+        except DecodeError:
+            raise AuthenticationFailed('Invalid token - Decode error.')
+        
+        except InvalidTokenError:
+            raise AuthenticationFailed('Invalid token - Invalid token error.')
+        
+
         user = User.objects.filter(id=payload['id']).first()
+        if user is None:
+            raise AuthenticationFailed('User not found.')
+
         serializer = UserSerializer(user)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 
 class LogoutView(APIView):
@@ -71,5 +88,4 @@ class LogoutView(APIView):
         response.data = {
             'message':'success'
         }
-
         return response

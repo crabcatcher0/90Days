@@ -4,5 +4,6 @@
 # Day 2:
 ### ClassBased View. :heavy_check_mark:
 ### Authentication. :heavy_check_mark:
-JWT token stored in a cookie.
-Register, Login, Logout
+- **JWT token stored in a cookie.**
+- **Register, Login, Logout.**
+- **User Validation and Error Handled.**
