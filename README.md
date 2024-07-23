@@ -7,3 +7,6 @@
 - **JWT token stored in a cookie.**
 - **Register, Login, Logout.**
 - **User Validation and Error Handled.**
+# Day 3:
+- **Started Simple JWT.**
+- **Access Token is now not stored in cookie**
