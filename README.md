@@ -8,5 +8,8 @@
 - **Register, Login, Logout.**
 - **User Validation and Error Handled.**
 # Day 3:
-- **Started Simple JWT.**
+- **Simple JWT token based authentication and authorization.**
 - **Token is stored in local storage instead of cookie**
+- **Started Frontend.**
+- **React: To understand how data are handled**
+

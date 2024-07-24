@@ -162,6 +162,9 @@ local_settings.py
 secrete_token.py
 # pytype static type analyzer
 .pytype/
+algo/
+.algo/
+algo
 
 # Cython debug symbols
 cython_debug/

@@ -160,6 +160,10 @@ SIMPLE_JWT = {
 
 REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%Y-%m-%d - %I:%M%p",
+     'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),

@@ -12,6 +12,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.exceptions import PermissionDenied
 from rest_framework_simplejwt.tokens import RefreshToken
+
 import logging
 
 
@@ -117,7 +118,7 @@ class PostView(APIView):
             serializer = PostSerializer(posted_data, partial=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:        
-            all_data = Post.objects.all()
+            all_data = Post.objects.filter(user=request.user)
             serialized_data = PostSerializer(all_data, many=True)
             return Response(serialized_data.data, status=status.HTTP_200_OK)
         
@@ -125,6 +126,7 @@ class PostView(APIView):
     def delete(self, request, pk=None):
         try:
             my_post = get_object_or_404(Post, pk=pk)
+            
             if my_post.user != request.user:
                 raise PermissionDenied('You do not have permission to delete this post.')
             my_post.delete()
