@@ -10,8 +10,9 @@ from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.exceptions import PermissionDenied
 from rest_framework_simplejwt.tokens import RefreshToken
-
+import logging
 
 
 class RegisterView(APIView):
@@ -47,6 +48,8 @@ class LoginView(APIView):
 
 
 class UserView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         token = request.headers.get('Authorization')
         if not token:
@@ -59,12 +62,15 @@ class UserView(APIView):
 
         try:
             payload = AccessToken(token)
-            user_id = payload['user_id']  # or 'id', depending on your token payload
+            user_id = payload['user_id']
             user = User.objects.get(id=user_id)
+
         except TokenError:
             raise AuthenticationFailed('Invalid token - Token error.')
+        
         except InvalidToken:
             raise AuthenticationFailed('Invalid token - Invalid token.')
+        
         except User.DoesNotExist:
             raise AuthenticationFailed('User not found.')
 
@@ -93,7 +99,7 @@ class PostView(APIView):
         try:
             serializer = PostSerializer(data=request.data, context={'request':request})
             if serializer.is_valid():
-                serializer.save()
+                serializer.save(user=request.user)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -105,9 +111,39 @@ class PostView(APIView):
         id = pk
         if pk is not None:
             posted_data = get_object_or_404(Post, pk=id)
+            if posted_data.user != request.user:
+                raise PermissionDenied('You do not have permission to access this post.')
+
             serializer = PostSerializer(posted_data, partial=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:        
             all_data = Post.objects.all()
             serialized_data = PostSerializer(all_data, many=True)
             return Response(serialized_data.data, status=status.HTTP_200_OK)
+        
+
+    def delete(self, request, pk=None):
+        try:
+            my_post = get_object_or_404(Post, pk=pk)
+            if my_post.user != request.user:
+                raise PermissionDenied('You do not have permission to delete this post.')
+            my_post.delete()
+            return Response({'message': f'Post of ID: {pk} is deleted.'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+    
+    def patch(self, request, pk=None):
+        try:
+            querryset = get_object_or_404(Post, pk=pk)
+            if querryset.user != request.user:
+                raise PermissionDenied('You do not have permission to edit this post.')
+
+            serializer = PostSerializer(querryset, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(serializer.errors, status=status.HTTP_304_NOT_MODIFIED)
+        except Exception as e:
+            return Response({'error':str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

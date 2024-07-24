@@ -7,5 +7,8 @@ urlpatterns = [
     path('user/', views.UserView.as_view()),
     path('logout', views.LogoutView.as_view()),
     path('feed', views.PostView.as_view()),
-    path('feed/<int:id>', views.PostView.as_view())
+    path('feed/<int:pk>/', views.PostView.as_view()),
+    path('feed/delete/<int:pk>', views.PostView.as_view()),
+    path('feed/edit/<int:pk>', views.PostView.as_view()),
+
 ]

@@ -31,12 +31,17 @@ class UserSerializer(serializers.ModelSerializer):
     
 
 class PostSerializer(serializers.ModelSerializer):
+    full_name =  serializers.SerializerMethodField()
+
     class Meta:
         model = Post
-        fields = ['id', 'user', 'title', 'content', 'created_at']
+        fields = ['id', 'user', 'full_name', 'title', 'content', 'created_at']
         read_only_fields = ['user']
     
     def create(self, validated_data):
         user = self.context['request'].user
         validated_data['user'] = user
         return super().create(validated_data)
+    
+    def get_full_name(self, obj):
+        return obj.user.full_name
