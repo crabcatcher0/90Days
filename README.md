@@ -9,4 +9,4 @@
 - **User Validation and Error Handled.**
 # Day 3:
 - **Started Simple JWT.**
-- **Access Token is now not stored in cookie**
+- **Token is stored in local storage instead of cookie**
