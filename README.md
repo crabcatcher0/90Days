@@ -12,4 +12,8 @@
 - **Token is stored in local storage instead of cookie**
 - **Started Frontend.**
 - **React: To understand how data are handled**
+# Day 4:
+- **React: Basics**
+
+
 
