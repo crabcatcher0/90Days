@@ -14,6 +14,8 @@
 - **React: To understand how data are handled**
 # Day 4:
 - **React: Basics**
+- **React: Consuming Data in frontEnd**
+
 
 
 

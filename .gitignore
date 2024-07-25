@@ -3,12 +3,14 @@
 /.pnp
 .pnp.js
 
+db_setting.py
 # testing
 /coverage
-
+./secrete
+secrete_key.py
 # production
 /build
-
+sercete_key.py
 # misc
 .DS_Store
 .env.local
@@ -148,6 +150,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 secrete.py
+secrete_key.py
 local_settings.py
 secrete_token.py
 # pytype static type analyzer
