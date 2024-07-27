@@ -2,7 +2,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+algo
+/algo
 db_setting.py
 # testing
 /coverage
