@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from api.views import UserView, RegisterView, LoginView
+from api.views import UserView, RegisterView, LoginView, LogoutView
 
 class TestUrls(SimpleTestCase):
 
@@ -31,4 +31,12 @@ class TestUrls(SimpleTestCase):
         resolved_view_func = resolve(url).func
         print(resolve(url))
         self.assertEqual(resolved_view_func.view_class, UserView)
+
+
+
+    def test_url_logout_is_resolved(self):
+        url = reverse('logout')
+        resolved_view_func = resolve(url).func
+        print(resolve(url))
+        self.assertEqual(resolved_view_func.view_class, LogoutView)
     
