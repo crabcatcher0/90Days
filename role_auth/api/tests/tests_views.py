@@ -47,3 +47,54 @@ class RegisterViewTest(TestCase):
         self.assertIn('This field may not be blank.', response_data['first_name'][0])
         self.assertIn('last_name', response_data)
         self.assertIn('This field may not be blank.', response_data['last_name'][0])
+
+
+
+
+class LoginViewTest(TestCase):
+
+    def setUp(self):
+        self.client = APIClient()
+        self.user = CustomUser.objects.create_user(
+            email='testuser@example.com',
+            password='securepassword',
+            first_name='ram',
+            last_name='nai'
+        )
+
+
+    # def test_login_success(self):
+    #     url = '/api/login'  
+    #     data = {
+    #         'email': 'ram@gmail.com',
+    #         'password': '123Rai%%'
+    #     }
+    #     response = self.client.post(url, data, format='json')
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    #     self.assertIn('access', response.data)
+    #     self.assertIn('refresh', response.data)
+
+
+
+    def test_login_failure(self):
+        url = '/api/login'
+        data = {
+            'email': 'ram@gmail.com',
+            'password': 'wrongpassword'
+        }
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertIn('detail', response.data)
+        self.assertEqual(response.data['detail'], 'No active account found with the given credentials')
+
+
+    def test_login_missing_fields(self):
+        url = '/api/login'  
+        data = {
+            'email': 'ram@gmail.com'
+            #no pass
+        }
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn('password', response.data)
+        self.assertEqual(response.data['password'][0], 'This field is required.')
