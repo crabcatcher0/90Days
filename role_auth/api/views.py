@@ -9,6 +9,7 @@ from .serializers import *
 # Create your views here.
 
 
+
 class RegisterView(APIView):
     permission_classes = [AllowAny]
 
@@ -23,6 +24,8 @@ class RegisterView(APIView):
         except Exception as e:
             return Response({'error':str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
+
+
 
 class LoginView(TokenObtainPairView):
     serializer_class = TokenObtainPairSerializer
