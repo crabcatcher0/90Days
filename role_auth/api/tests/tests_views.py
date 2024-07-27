@@ -3,7 +3,6 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 from api.models import CustomUser
-import json
 
 
 class RegisterViewTest(TestCase):
@@ -12,6 +11,7 @@ class RegisterViewTest(TestCase):
         self.client = APIClient()
         self.User = CustomUser()
     
+
     def test_register_user_success(self):
         url = '/api/register'  
         data = {
@@ -31,10 +31,19 @@ class RegisterViewTest(TestCase):
     def test_register_user_failure(self):
         url = '/api/register'  
         data = {
-            'email': 'invalid-email',  
-            'password': 'short',  
+            'email': 'ram@short_format',  
+            'password': 'short',
+            'first_name': '',
+            'last_name': '',  
         }
         response = self.client.post(url, data, format='json')
+        response_data = response.data
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertIn('email', response.data)
-        self.assertIn('password', response.data)
+        self.assertIn('email', response_data)
+        self.assertIn('Enter a valid email address.', response_data['email'][0])
+        self.assertIn('password', response_data)
+        self.assertIn('Ensure this field has at least 8 characters.', response_data['password'][0])
+        self.assertIn('first_name', response_data)
+        self.assertIn('This field may not be blank.', response_data['first_name'][0])
+        self.assertIn('last_name', response_data)
+        self.assertIn('This field may not be blank.', response_data['last_name'][0])

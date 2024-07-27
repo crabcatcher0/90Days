@@ -6,7 +6,11 @@ from rest_framework_simplejwt.tokens import Token
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import CustomUser
 from .serializers import *
+import logging
 # Create your views here.
+
+
+logger = logging.getLogger(__name__)
 
 
 
@@ -15,14 +19,17 @@ class RegisterView(APIView):
 
     def post(self, request):
         request_data = RegisterUserSerializer(data=request.data)
-        try:
-            if request_data.is_valid(raise_exception=True):
-                request_data.save()
-                return Response(request_data.data, status=status.HTTP_201_CREATED)
-            else:
-                return Response(request_data.errors, status=status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            return Response({'error':str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+        if request_data.is_valid(raise_exception=True):
+                try:
+                    request_data.save()
+                    return Response(request_data.data, status=status.HTTP_201_CREATED)
+            
+                except Exception as e:
+                    logger.error('Exception occurred: %s', str(e))
+                    return Response({'error': 'An unexpected error occurred.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        else:
+            return Response(request_data.errors, status=status.HTTP_400_BAD_REQUEST)
         
 
 
