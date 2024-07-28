@@ -67,7 +67,7 @@ class LoginViewTest(TestCase):
     #     url = '/api/login'  
     #     data = {
     #         'email': 'ram@gmail.com',
-    #         'password': '123Rai%%'
+    #         'password': '####'
     #     }
     #     response = self.client.post(url, data, format='json')
     #     self.assertEqual(response.status_code, status.HTTP_200_OK)
