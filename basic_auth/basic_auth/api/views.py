@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from .serializers import *
+from .models import *
 # Create your views here.
 
 
@@ -36,4 +39,20 @@ class LoginView(APIView):
     
         return Response(serialzed_data.data, status=status.HTTP_400_BAD_REQUEST)
     
-            
+
+
+class UserView(APIView):
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
+    def get(self, request, id=None):
+        if id is None:
+            querry = CustomUser.objects.all()
+            serialized_querry = CustomUserSerializer(querry, many=True)
+            return Response(serialized_querry.data, status=status.HTTP_200_OK)
+        else:
+    
+            query = get_object_or_404(CustomUser, id=id)
+            seralized_query = CustomUserSerializer(query, partial=True)
+            return Response(seralized_query.data, status=status.HTTP_200_OK)
+        
+

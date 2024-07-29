@@ -8,7 +8,7 @@ from rest_framework import serializers
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ['email', 'first_name', 'last_name', 'is_active']
+        fields = ['id', 'email', 'first_name', 'last_name', 'is_active']
 
 
 

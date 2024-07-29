@@ -18,7 +18,8 @@
 # Day 5:
 - **Basic Unit Testing**
 # Day 6:
-- **Basic authentication concept http**
+- **Basic authentication**
+-**Token based auth: JWT**
 
 
 
