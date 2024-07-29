@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'basic_auth.wsgi.application'
 
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
