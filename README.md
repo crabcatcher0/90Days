@@ -17,6 +17,10 @@
 - **React: Consuming Data in frontEnd**
 # Day 5:
 - **Basic Unit Testing**
+# Day 6:
+- **Basic authentication concept http**
+
+
 
 
 
