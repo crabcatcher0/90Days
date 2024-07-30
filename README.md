@@ -19,7 +19,11 @@
 - **Basic Unit Testing**
 # Day 6:
 - **Basic authentication**
--**Token based auth: JWT**
+- **Token based auth: JWT**
+# Day 7:
+- **Token based auth: Simple Jwt**
+- **Creating user and login**
+
 
 
 
