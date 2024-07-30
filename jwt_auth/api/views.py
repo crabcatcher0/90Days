@@ -3,12 +3,19 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import *
 
 
 class Homeview(APIView):
     def get(self, request):
         return Response({'message:':'Hi, Welcome to Jwt Auth...'})
+    
+class UserView(APIView):
+    def get(self, request):
+        query = CustomUser.objects.all()
+        serialized_data = CustomUserSerializer(query, many=True)
+        return Response(serialized_data.data, status=status.HTTP_200_OK)
     
 
 class RegisterView(APIView):
@@ -23,4 +30,7 @@ class RegisterView(APIView):
             except:
                 return Response(serialized_query.errors, status=status.HTTP_400_BAD_REQUEST)
             
-    
+
+
+class LoginView(TokenObtainPairView):
+    serializer_class = LoginViewSerializer
