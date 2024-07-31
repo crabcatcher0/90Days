@@ -7,8 +7,13 @@
     <div class="hero-content">
         <h1>Discover Fascinating Cat Facts!</h1>
         <p>Learn amazing and fun facts about cats that will make you love them even more.</p>
-        <div class="card-content">
-            <p>Cats have five toes on their front paws, but only four toes on their back paws.</p>
+        <div class="notes-container">
+            {% for dat in data %}
+                <div class="note-card">
+                    <p>{{ dat }}</p>
+                    <button class="share-button" onclick="shareFact('{{ dat }}')">Share</button>
+                </div>
+            {% endfor %}
         </div>
         <a href="#" class="show-btn">Get Random Cat Fact</a>
     </div>

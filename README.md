@@ -23,6 +23,10 @@
 # Day 7:
 - **Token based auth: Simple Jwt**
 - **Creating user and login**
+# Day 8:
+- **sockets**
+
+
 
 
 
