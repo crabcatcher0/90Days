@@ -33,6 +33,10 @@
 # Day 11:
 - **College Coursework(Remaster)**
 - **System Design(ERD, Use-case)**
+# Day 12:
+- **Front-end React**
+- **Backend Started**
+
 
 
 
