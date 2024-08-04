@@ -36,6 +36,9 @@
 # Day 12:
 - **Front-end React**
 - **Backend Started**
+# Day 13:
+- **Serializers**
+
 
 
 
