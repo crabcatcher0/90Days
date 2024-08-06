@@ -38,6 +38,13 @@
 - **Backend Started**
 # Day 13:
 - **Serializers**
+# Day 14:
+- **Django user model**
+# Day 15:
+- **Aug 6, 2025**
+
+
+
 
 
 
