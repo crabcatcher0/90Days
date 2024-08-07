@@ -42,6 +42,9 @@
 - **Django user model**
 # Day 15:
 - **Aug 6, 2025**
+# Day 16:
+- **Obj Manipulation**
+
 
 
 
