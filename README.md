@@ -44,6 +44,12 @@
 - **Aug 6, 2025**
 # Day 16:
 - **Obj Manipulation**
+# Day 17:
+- **ERD Course**
+- **Hostel Model and Built-in User model manipulation**
+
+
+
 
 
 
