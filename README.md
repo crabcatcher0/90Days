@@ -47,6 +47,10 @@
 # Day 17:
 - **ERD Course**
 - **Hostel Model and Built-in User model manipulation**
+# Day 18:
+- **OOP Revised**
+
+
 
 
 
