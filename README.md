@@ -49,6 +49,10 @@
 - **Hostel Model and Built-in User model manipulation**
 # Day 18:
 - **OOP Revised**
+# Day 19:
+- **User registratin Built in User Model**
+
+
 
 
 
