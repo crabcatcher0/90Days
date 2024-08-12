@@ -53,6 +53,10 @@
 - **User registratin Built in User Model**
 # Day 20:
 - **Preparation**
+# Day 21:
+- **Backend responses getting when browsed to Hostel URL**
+
+
 
 
 
