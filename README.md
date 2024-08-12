@@ -51,6 +51,8 @@
 - **OOP Revised**
 # Day 19:
 - **User registratin Built in User Model**
+# Day 20:
+- **Preparation**
 
 
 
