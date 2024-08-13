@@ -55,6 +55,11 @@
 - **Preparation**
 # Day 21:
 - **Backend responses getting when browsed to Hostel URL**
+# Day 22:
+- **Dict**
+- **Hostel Filter by Type**
+
+
 
 
 
