@@ -58,6 +58,8 @@
 # Day 22:
 - **Dict**
 - **Hostel Filter by Type**
+- **Ongoing async with aiohttp**
+
 
 
 
