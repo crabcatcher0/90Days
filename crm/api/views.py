@@ -18,7 +18,7 @@ class RegisterView(APIView):
         data = RegistrationSerializer(data = request.data)
         if data.is_valid():
             data.save()
-            return Response(data.data, status=status.HTTP_200_OK)
+            return Response(data.data, status=status.HTTP_201_CREATED)
         else:
             return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
         
@@ -28,8 +28,8 @@ class LoginView(APIView):
         data = LoginSerializer(data = request.data)
 
         if data.is_valid():
-            username = data.is_validated_data['username']
-            password = data.is_validated_data['password']
+            username = data.validated_data['username']
+            password = data.validated_data['password']
             user = authenticate(request, username=username, password=password)
 
             if user is not None:
