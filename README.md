@@ -59,6 +59,10 @@
 - **Dict**
 - **Hostel Filter by Type**
 - **Ongoing async with aiohttp**
+# Day 23:
+- **New CRM project added**
+
+
 
 
 
