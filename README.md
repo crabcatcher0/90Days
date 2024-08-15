@@ -61,6 +61,10 @@
 - **Ongoing async with aiohttp**
 # Day 23:
 - **New CRM project added**
+# Day 24:
+- **Relational Database**
+
+
 
 
 
