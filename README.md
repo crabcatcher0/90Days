@@ -63,6 +63,10 @@
 - **New CRM project added**
 # Day 24:
 - **Relational Database**
+# Day 25:
+- **Started own custom ORM for SQLite**
+- **Mapped Classes to table**
+
 
 
 
