@@ -66,6 +66,8 @@
 # Day 25:
 - **Started own custom ORM for SQLite**
 - **Mapped Classes to table**
+- **@classmethod**
+
 
 
 
