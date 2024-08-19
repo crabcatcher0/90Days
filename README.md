@@ -71,6 +71,8 @@
 - **Working on ORM**
 # Day 27:
 - **Exploring Flask**
+- **Connecting sql_Crab ORM to Flask**
+
 
 
 
