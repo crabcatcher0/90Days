@@ -69,6 +69,10 @@
 - **@classmethod**
 # Day 26:
 - **Working on ORM**
+# Day 27:
+- **Exploring Flask**
+
+
 
 
 
