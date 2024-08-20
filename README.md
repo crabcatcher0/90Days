@@ -72,6 +72,10 @@
 # Day 27:
 - **Exploring Flask**
 - **Connecting sql_Crab ORM to Flask**
+# Day 28:
+- **Foreign Key in ORM**
+
+
 
 
 
