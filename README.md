@@ -73,7 +73,10 @@
 - **Exploring Flask**
 - **Connecting sql_Crab ORM to Flask**
 # Day 28:
-- **Foreign Key in ORM**
+- **Foreign Key in ORM (status: Ongoing)**
+# Day 29:
+- **POST data: method inside add_data.Data**
+- **Need to create `is_valid`, `save`, methods**
 
 
 
