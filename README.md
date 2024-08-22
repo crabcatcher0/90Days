@@ -77,6 +77,10 @@
 # Day 29:
 - **POST data: method inside add_data.Data**
 - **Need to create `is_valid`, `save`, methods**
+# Day 30:
+- **Exploring Projects**
+
+
 
 
 
