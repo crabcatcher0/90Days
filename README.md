@@ -79,6 +79,10 @@
 - **Need to create `is_valid`, `save`, methods**
 # Day 30:
 - **Exploring Projects**
+# Day 31:
+- **Events Manager (updated)**
+
+
 
 
 
