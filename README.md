@@ -81,6 +81,9 @@
 - **Exploring Projects**
 # Day 31:
 - **Events Manager (updated)**
+# Day 32:
+- **FastAPI**
+
 
 
 
