@@ -83,6 +83,11 @@
 - **Events Manager (updated)**
 # Day 32:
 - **FastAPI**
+# Day 33:
+- **Hackerrank**
+# Day 34:
+- **FastAPI plus Auth**
+
 
 
 
