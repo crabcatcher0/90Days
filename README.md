@@ -87,6 +87,9 @@
 - **Hackerrank**
 # Day 34:
 - **FastAPI plus Auth**
+# Day 34:
+- **FASTORM started**
+
 
 
 
