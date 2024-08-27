@@ -89,6 +89,9 @@
 - **FastAPI plus Auth**
 # Day 34:
 - **FASTORM started**
+# Day 35:
+- **Important: Needed to add is_valid method to validate post data**
+
 
 
 
