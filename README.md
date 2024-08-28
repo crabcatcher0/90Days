@@ -91,6 +91,11 @@
 - **FASTORM started**
 # Day 35:
 - **Important: Needed to add is_valid method to validate post data**
+# Day 36:
+- **Made changes to sql_Crab**
+- **Need to Optimize Querry**
+- **Working on `FASTORM`**
+
 
 
 
