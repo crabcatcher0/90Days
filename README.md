@@ -98,6 +98,9 @@
 # Day 37:
 - **Adding more functionality in swl_Crab**
 - **JWT Auth**
+# Day 37:
+- **Query optimization**
+
 
 
 
