@@ -95,6 +95,11 @@
 - **Made changes to sql_Crab**
 - **Need to Optimize Querry**
 - **Working on `FASTORM`**
+# Day 37:
+- **Adding more functionality in swl_Crab**
+- **JWT Auth**
+
+
 
 
 
