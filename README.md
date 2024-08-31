@@ -100,6 +100,11 @@
 - **JWT Auth**
 # Day 37:
 - **Query optimization**
+# Day 38:
+- **Data serialization**
+- **`filter_data` method in orm**
+
+
 
 
 
