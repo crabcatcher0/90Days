@@ -103,6 +103,9 @@
 # Day 38:
 - **Data serialization**
 - **`filter_data` method in orm**
+# Day 39:
+- **MYSql**
+
 
 
 
