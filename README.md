@@ -105,6 +105,9 @@
 - **`filter_data` method in orm**
 # Day 39:
 - **MYSql**
+# Day 40:
+- **work on orm**
+
 
 
 
