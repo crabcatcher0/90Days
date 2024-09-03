@@ -107,6 +107,12 @@
 - **MYSql**
 # Day 40:
 - **work on orm**
+# Day 41:
+- **added methods on orm**
+- **upvote and downvote need research**
+
+
+
 
 
 
