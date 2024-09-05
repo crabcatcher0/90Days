@@ -110,6 +110,10 @@
 # Day 41:
 - **added methods on orm**
 - **upvote and downvote need research**
+# Day 42:
+- **automation**
+- **leetcode**
+
 
 
 
