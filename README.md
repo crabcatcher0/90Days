@@ -115,6 +115,9 @@
 - **leetcode**
 # Day 43:
 - **September 6**
+# Day 44:
+- **method added to `sql_crab`**
+
 
 
 
