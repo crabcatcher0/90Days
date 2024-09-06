@@ -113,6 +113,9 @@
 # Day 42:
 - **automation**
 - **leetcode**
+# Day 43:
+- **September 6**
+
 
 
 
