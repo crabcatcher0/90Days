@@ -117,6 +117,11 @@
 - **September 6**
 # Day 44:
 - **method added to `sql_crab`**
+- **JWT auth**
+- **social auth(django)**
+# Day 45:
+- **Started mysql for orm**
+
 
 
 
