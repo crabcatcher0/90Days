@@ -121,7 +121,8 @@
 - **social auth(django)**
 # Day 45:
 - **Started mysql for orm**
-
+# Day 46:
+- **Error codes added**
 
 
 
