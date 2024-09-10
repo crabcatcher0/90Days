@@ -123,6 +123,9 @@
 - **Started mysql for orm**
 # Day 46:
 - **Error codes added**
+# Day 47:
+- **mysql cursor.decription**
+
 
 
 
