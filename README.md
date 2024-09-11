@@ -125,7 +125,8 @@
 - **Error codes added**
 # Day 47:
 - **mysql cursor.decription**
-
+# Day 48:
+- **ts sep 11**
 
 
 
