@@ -127,7 +127,8 @@
 - **mysql cursor.decription**
 # Day 48:
 - **ts sep 11**
-
+# Day 49:
+- **viewset**
 
 
 
