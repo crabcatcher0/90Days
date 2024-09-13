@@ -129,6 +129,8 @@
 - **ts sep 11**
 # Day 49:
 - **viewset**
+# Day 50:
+- **DRF**
 
 
 
