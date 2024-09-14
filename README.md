@@ -131,6 +131,11 @@
 - **viewset**
 # Day 50:
 - **DRF**
+# Day 51:
+- **Prometheous**
+- **postgres_exporter**
+
+
 
 
 
