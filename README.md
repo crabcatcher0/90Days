@@ -134,7 +134,8 @@
 # Day 51:
 - **Prometheous**
 - **postgres_exporter**
-
+# Day 52:
+- **djnago-ninja**
 
 
 
