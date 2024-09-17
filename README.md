@@ -136,8 +136,8 @@
 - **postgres_exporter**
 # Day 52:
 - **djnago-ninja**
-
-
+# Day 53:
+- **gw sep 17**
 
 
 
