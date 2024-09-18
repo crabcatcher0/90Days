@@ -138,6 +138,8 @@
 - **djnago-ninja**
 # Day 53:
 - **gw sep 17**
+# Day 54:
+- **gw sep 18**
 
 
 
