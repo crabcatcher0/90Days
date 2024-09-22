@@ -141,6 +141,10 @@
 # Day 54:
 - **gw sep 18**
 - **yaml**
+# Day 55-56:
+- **exploring frontend**
+
+
 
 
 
